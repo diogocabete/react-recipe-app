@@ -113,3 +113,12 @@ ul {
 .image {
   padding: 0;
 }
+
+@media only screen and (max-width: 768px) {
+  .recipe {
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+  }
+}
