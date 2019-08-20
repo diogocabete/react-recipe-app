@@ -13,13 +13,17 @@ const RecipeContextProvider = (props) => {
         }
     }, []);
 
-    const searchRecipe = (recipe) => {
-        fetch(`/api/${recipe}`)
-        .then(response => response.json())
-        .then(response => {
-            setRecipeList(response.hits)
-            localStorage.setItem('recipe', JSON.stringify(response.hits))
-        })        
+    const searchRecipe = async (recipe) => {
+        const response = await fetch(`/api/${recipe}`);
+        const result = await response.json();
+        setRecipeList(result.hits)
+        localStorage.setItem('recipe', JSON.stringify(result.hits))
+        // fetch(`/api/${recipe}`)
+        // .then(response => response.json())
+        // .then(response => {
+        //     setRecipeList(response.hits)
+        //     localStorage.setItem('recipe', JSON.stringify(response.hits))
+        // })        
     }
 
     return (
